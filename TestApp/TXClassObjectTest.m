@@ -9,9 +9,14 @@
 #import "TXClassObjectTest.h"
 
 @interface TXClassA : NSObject
+
+@property(nonatomic, assign) int foo;
+
 @end
 
 @implementation TXClassA
+
+@synthesize foo = _foo;
 
 + (void)initialize {
     NSLog(@"[TXClassA initialize]");
@@ -40,9 +45,14 @@
 @end
 
 @interface TXClassB : TXClassA
+
+@property(nonatomic, assign) int bar;
+
 @end
 
 @implementation TXClassB
+
+@synthesize bar = _bar;
 
 + (void)initialize {
     NSLog(@"[TXClassB initialize]");
@@ -73,12 +83,26 @@
 
 @implementation TXClassObjectTest
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSLog(@"[TXClassObjectTest observeValueForKeyPath:object:change:context]");
+    NSLog(@"  change = %@", change);
+    NSLog(@" ");
+}
+
 - (void)doTest {
     TXClassB* b = [[TXClassB alloc] init];
     [b release];
     b = nil;
     
     [TXClassB classMethod];
+
+    TXClassA* a = [[TXClassA alloc] init];
+    a.foo = 1;
+    [a addObserver:self forKeyPath:@"foo" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    a.foo++;
+    [a removeObserver:self forKeyPath:@"foo"];
+    [a release];
+    a = nil;
 }
 
 @end
