@@ -19,6 +19,7 @@
 		0A32D32C16E96659000F6EEC /* TXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A32D32B16E96659000F6EEC /* TXViewController.m */; };
 		0A32D33A16E9689E000F6EEC /* TXAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A32D33916E9689E000F6EEC /* TXAppView.m */; };
 		0A32D33F16E96BE3000F6EEC /* TXClassObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A32D33E16E96BE3000F6EEC /* TXClassObjectTest.m */; };
+		6AFD616216E99AF200C48C8E /* TXArrayPerfTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD616116E99AF200C48C8E /* TXArrayPerfTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		0A32D33B16E96929000F6EEC /* TXInlineFun.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXInlineFun.h; sourceTree = "<group>"; };
 		0A32D33D16E96BE3000F6EEC /* TXClassObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXClassObjectTest.h; sourceTree = "<group>"; };
 		0A32D33E16E96BE3000F6EEC /* TXClassObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXClassObjectTest.m; sourceTree = "<group>"; };
+		6AFD616016E99AF200C48C8E /* TXArrayPerfTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXArrayPerfTest.h; sourceTree = "<group>"; };
+		6AFD616116E99AF200C48C8E /* TXArrayPerfTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXArrayPerfTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				0A32D32216E96659000F6EEC /* TXAppDelegate.m */,
 				0A32D33816E9689E000F6EEC /* TXAppView.h */,
 				0A32D33916E9689E000F6EEC /* TXAppView.m */,
+				6AFD616016E99AF200C48C8E /* TXArrayPerfTest.h */,
+				6AFD616116E99AF200C48C8E /* TXArrayPerfTest.m */,
 				0A32D33D16E96BE3000F6EEC /* TXClassObjectTest.h */,
 				0A32D33E16E96BE3000F6EEC /* TXClassObjectTest.m */,
 				0A32D33B16E96929000F6EEC /* TXInlineFun.h */,
@@ -187,6 +192,7 @@
 				0A32D32C16E96659000F6EEC /* TXViewController.m in Sources */,
 				0A32D33A16E9689E000F6EEC /* TXAppView.m in Sources */,
 				0A32D33F16E96BE3000F6EEC /* TXClassObjectTest.m in Sources */,
+				6AFD616216E99AF200C48C8E /* TXArrayPerfTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +272,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestApp/TestApp-Prefix.pch";
 				INFOPLIST_FILE = "TestApp/TestApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -277,6 +284,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestApp/TestApp-Prefix.pch";
 				INFOPLIST_FILE = "TestApp/TestApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -301,6 +309,7 @@
 				0A32D33716E96659000F6EEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,45 +10,70 @@
 
 #include "TXInlineFun.h"
 
+#import "TXArrayPerfTest.h"
 #import "TXClassObjectTest.h"
 
 @interface TXAppView () {
   @private
     UIButton* _classObjectTestButton;
+    UIButton* _arrayPerfTestButton;
 }
+-(void)initButtons;
 -(void)classObjectTest:(id)sender;
+-(void)arrayPerfTest:(id)sender;
 @end
 
 @implementation TXAppView
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor grayColor];
-        
-        _classObjectTestButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_classObjectTestButton setTitle:@"Class Object Test" forState:UIControlStateNormal];
-        [_classObjectTestButton addTarget:self action:@selector(classObjectTest:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_classObjectTestButton];
+      
+        [self initButtons];
     }
     return self;
 }
 
 - (void)layoutSubviews {
-    CGSize size = self.frame.size;
+    CGFloat y = 10;
 
     [_classObjectTestButton sizeToFit];
     CGRect frame = _classObjectTestButton.frame;
-    frame.origin.x = CenterDim(size.width, frame.size.width);
-    frame.origin.y = CenterDim(size.height, frame.size.height);
+    frame.origin = CGPointMake(10, y);
     _classObjectTestButton.frame = frame;
+    y += CGRectGetHeight(frame) + 10;
+
+    [_arrayPerfTestButton sizeToFit];
+    frame = _arrayPerfTestButton.frame;
+    frame.origin = CGPointMake(10, y);
+    _arrayPerfTestButton.frame = frame;
+    y += CGRectGetHeight(frame) + 10;
+}
+
+#pragma mark Internal
+
+- (void)initButtons {
+    _classObjectTestButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_classObjectTestButton setTitle:@"Class Object Test" forState:UIControlStateNormal];
+    [_classObjectTestButton addTarget:self action:@selector(classObjectTest:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_classObjectTestButton];
+
+    _arrayPerfTestButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_arrayPerfTestButton setTitle:@"Array Perf Test" forState:UIControlStateNormal];
+    [_arrayPerfTestButton addTarget:self action:@selector(arrayPerfTest:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_arrayPerfTestButton];
 }
 
 #pragma mark Callbacks
 
 - (void)classObjectTest:(id)sender {
     TXClassObjectTest* test = [[[TXClassObjectTest alloc] init] autorelease];
+    [test doTest];
+}
+
+- (void)arrayPerfTest:(id)sender {
+    TXArrayPerfTest* test = [[[TXArrayPerfTest alloc] init] autorelease];
     [test doTest];
 }
 
