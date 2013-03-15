@@ -12,15 +12,18 @@
 
 #import "TXArrayPerfTest.h"
 #import "TXClassObjectTest.h"
+#import "TXStringSortTest.h"
 
 @interface TXAppView () {
   @private
     UIButton* _classObjectTestButton;
     UIButton* _arrayPerfTestButton;
+    UIButton* _sortConcurrencyTestButton;
 }
 -(void)initButtons;
 -(void)classObjectTest:(id)sender;
 -(void)arrayPerfTest:(id)sender;
+-(void)sortConcurrencyPerfTest:(id)sender;
 @end
 
 @implementation TXAppView
@@ -49,6 +52,13 @@
     frame.origin = CGPointMake(10, y);
     _arrayPerfTestButton.frame = frame;
     y += CGRectGetHeight(frame) + 10;
+    
+    [_sortConcurrencyTestButton sizeToFit];
+    frame = _sortConcurrencyTestButton.frame;
+    frame.origin = CGPointMake(10, y);
+    _sortConcurrencyTestButton.frame = frame;
+    y += CGRectGetHeight(frame) + 10;
+
 }
 
 #pragma mark Internal
@@ -63,6 +73,12 @@
     [_arrayPerfTestButton setTitle:@"Array Perf Test" forState:UIControlStateNormal];
     [_arrayPerfTestButton addTarget:self action:@selector(arrayPerfTest:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_arrayPerfTestButton];
+    
+    _sortConcurrencyTestButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_sortConcurrencyTestButton setTitle:@"Concurrent Sort Perf Test" forState:UIControlStateNormal];
+    [_sortConcurrencyTestButton addTarget:self action:@selector(sortConcurrencyPerfTest:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_sortConcurrencyTestButton];
+
 }
 
 #pragma mark Callbacks
@@ -74,6 +90,11 @@
 
 - (void)arrayPerfTest:(id)sender {
     TXArrayPerfTest* test = [[[TXArrayPerfTest alloc] init] autorelease];
+    [test doTest];
+}
+
+- (void)sortConcurrencyPerfTest:(id)sender {
+    TXStringSortTest* test = [[[TXStringSortTest alloc] init] autorelease];
     [test doTest];
 }
 
