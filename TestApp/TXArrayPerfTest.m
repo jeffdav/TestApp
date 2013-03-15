@@ -78,6 +78,45 @@
     return total;
 }
 
+- (CFAbsoluteTime)doForLoopCount {
+    CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+
+    NSMutableArray* array = [NSMutableArray array];
+
+    for (int i = 0; i < 10000; ++i) {
+        [array addObject:[NSNumber numberWithInt:i]];
+    }
+
+    NSInteger count = 0;
+    for (NSNumber *highlightValue in array)
+    {
+        if ([highlightValue intValue] % 4 == 0)
+        {
+            ++count;
+        }
+    }
+
+    CFAbsoluteTime total = CFAbsoluteTimeGetCurrent() - start;
+    NSLog(@"FindTest, count = %d, total time = %f", count, total);
+    return total;
+}
+
+- (CFAbsoluteTime)doIndexSetCount {
+    CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+
+    NSMutableArray* array = [NSMutableArray array];
+
+    for (int i = 0; i < 10000; ++i) {
+        [array addObject:[NSNumber numberWithInt:i]];
+    }
+
+    NSInteger count = [[array indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) { return [obj intValue] % 4 == 0; }] count];
+
+    CFAbsoluteTime total = CFAbsoluteTimeGetCurrent() - start;
+    NSLog(@"FindTest, count = %d, total time = %f", count, total);
+    return total;
+}
+
 - (void)doTest {
     static const int kRuns = 4;
 
@@ -100,6 +139,20 @@
         total += [self doBestTest];
     }
     NSLog(@"Best average: %f", total / kRuns);
+    NSLog(@" ");
+
+    total = 0;
+    for (int i = 0; i < kRuns; ++i) {
+        total += [self doForLoopCount];
+    }
+    NSLog(@"For-loop count average: %f", total / kRuns);
+    NSLog(@" ");
+
+    total = 0;
+    for (int i = 0; i < kRuns; ++i) {
+        total += [self doIndexSetCount];
+    }
+    NSLog(@"IndexSet count average: %f", total / kRuns);
     NSLog(@" ");
 }
 
