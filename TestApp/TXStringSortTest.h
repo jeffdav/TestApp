@@ -6,10 +6,8 @@
 //  Copyright (c) 2013 Jeff Davis. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface TXStringSortTest : NSObject
 
-- (void) doTest;
+- (void)doTest;
 
 @end

@@ -27,10 +27,7 @@ static NSString* const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
     
     start = CFAbsoluteTimeGetCurrent();
     
-    NSArray* reverseSortConcurrent = [array sortedArrayWithOptions:(NSSortConcurrent | NSSortStable)
-                                      usingComparator:^(id str1, id str2) {
-                                         return [str2 compare:str1];
-                                     }];
+    NSArray* reverseSortConcurrent = [array sortedArrayWithOptions:(NSSortConcurrent | NSSortStable) usingComparator:^(id str1, id str2) { return [str2 compare:str1]; }];
     
     
     total = CFAbsoluteTimeGetCurrent() - start;
@@ -40,10 +37,7 @@ static NSString* const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
     
     start = CFAbsoluteTimeGetCurrent();
     
-    NSArray* reverseSortNonConcurrent = [array sortedArrayWithOptions:NSSortStable
-                                         usingComparator:^(id str1, id str2) {
-                                                       return [str2 compare:str1];
-                                        }];
+    NSArray* reverseSortNonConcurrent = [array sortedArrayWithOptions:NSSortStable usingComparator:^(id str1, id str2) { return [str2 compare:str1]; }];
 
     total = CFAbsoluteTimeGetCurrent() - start;
     NSLog(@"Nonconcurrent Reverse Sort: %f", total);
@@ -52,14 +46,11 @@ static NSString* const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
       
 }
 
--(NSString *) genRandStringLength: (int) len {
-    
+-(NSString *)genRandStringLength:(int)len {
     NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
-    
-    for (int i=0; i<len; i++) {
-        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random() % [letters length]]];
+    for (int i = 0; i < len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex:arc4random() % [letters length]]];
     }
-    
     return randomString;
 }
 

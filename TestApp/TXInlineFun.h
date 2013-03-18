@@ -10,7 +10,7 @@
 #define TestApp_TXInlineFun_h
 
 CF_INLINE CGFloat CenterDim(CGFloat outer, CGFloat inner) {
-    return (outer - inner) / 2.0f;
+    return roundf((outer - inner) / 2.0f);
 }
 
 #endif
