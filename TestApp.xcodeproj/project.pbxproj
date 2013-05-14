@@ -20,6 +20,7 @@
 		0A32D33A16E9689E000F6EEC /* TXAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A32D33916E9689E000F6EEC /* TXAppView.m */; };
 		0A32D33F16E96BE3000F6EEC /* TXClassObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A32D33E16E96BE3000F6EEC /* TXClassObjectTest.m */; };
 		0A3FE55216F781AE000092DB /* TXInitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FE55116F781AE000092DB /* TXInitTest.m */; };
+		0AD65C0E1742878C00BF3370 /* TXBlockSelfRefTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD65C0D1742878C00BF3370 /* TXBlockSelfRefTest.m */; };
 		6AFD616216E99AF200C48C8E /* TXArrayPerfTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD616116E99AF200C48C8E /* TXArrayPerfTest.m */; };
 		D89C1EC916F39751002518E2 /* TXStringSortTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D89C1EC816F39751002518E2 /* TXStringSortTest.m */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,8 @@
 		0A32D33E16E96BE3000F6EEC /* TXClassObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXClassObjectTest.m; sourceTree = "<group>"; };
 		0A3FE55016F781AE000092DB /* TXInitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXInitTest.h; sourceTree = "<group>"; };
 		0A3FE55116F781AE000092DB /* TXInitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXInitTest.m; sourceTree = "<group>"; };
+		0AD65C0C1742878C00BF3370 /* TXBlockSelfRefTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBlockSelfRefTest.h; sourceTree = "<group>"; };
+		0AD65C0D1742878C00BF3370 /* TXBlockSelfRefTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBlockSelfRefTest.m; sourceTree = "<group>"; };
 		6AFD616016E99AF200C48C8E /* TXArrayPerfTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXArrayPerfTest.h; sourceTree = "<group>"; };
 		6AFD616116E99AF200C48C8E /* TXArrayPerfTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXArrayPerfTest.m; sourceTree = "<group>"; };
 		D89C1EC716F39751002518E2 /* TXStringSortTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStringSortTest.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				0A32D33916E9689E000F6EEC /* TXAppView.m */,
 				6AFD616016E99AF200C48C8E /* TXArrayPerfTest.h */,
 				6AFD616116E99AF200C48C8E /* TXArrayPerfTest.m */,
+				0AD65C0C1742878C00BF3370 /* TXBlockSelfRefTest.h */,
+				0AD65C0D1742878C00BF3370 /* TXBlockSelfRefTest.m */,
 				0A32D33D16E96BE3000F6EEC /* TXClassObjectTest.h */,
 				0A32D33E16E96BE3000F6EEC /* TXClassObjectTest.m */,
 				0A3FE55016F781AE000092DB /* TXInitTest.h */,
@@ -205,6 +210,7 @@
 				6AFD616216E99AF200C48C8E /* TXArrayPerfTest.m in Sources */,
 				D89C1EC916F39751002518E2 /* TXStringSortTest.m in Sources */,
 				0A3FE55216F781AE000092DB /* TXInitTest.m in Sources */,
+				0AD65C0E1742878C00BF3370 /* TXBlockSelfRefTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

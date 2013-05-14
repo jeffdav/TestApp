@@ -11,6 +11,7 @@
 #include "TXInlineFun.h"
 
 #import "TXArrayPerfTest.h"
+#import "TXBlockSelfRefTest.h"
 #import "TXClassObjectTest.h"
 #import "TXInitTest.h"
 #import "TXStringSortTest.h"
@@ -21,6 +22,7 @@
     UIButton* _arrayPerfTestButton;
     UIButton* _sortConcurrencyTestButton;
     UIButton* _initTestButton;
+    UIButton* _blockSelfRefButton;
 }
 -(void)initButtons;
 -(void)classObjectTest:(id)sender;
@@ -67,6 +69,12 @@
     frame.origin = CGPointMake(10, y);
     _initTestButton.frame = frame;
     y += CGRectGetHeight(frame) + 10;
+
+    [_blockSelfRefButton sizeToFit];
+    frame = _blockSelfRefButton.frame;
+    frame.origin = CGPointMake(10, y);
+    _blockSelfRefButton.frame = frame;
+    y += CGRectGetHeight(frame) + 10;
 }
 
 #pragma mark Internal
@@ -91,27 +99,42 @@
     [_initTestButton setTitle:@"Initializer Test" forState:UIControlStateNormal];
     [_initTestButton addTarget:self action:@selector(initTest:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_initTestButton];
+
+    _blockSelfRefButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_blockSelfRefButton setTitle:@"Block w/Self Ref Test" forState:UIControlStateNormal];
+    [_blockSelfRefButton addTarget:self action:@selector(blockSelfRefTest:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_blockSelfRefButton];
 }
 
 #pragma mark Callbacks
 
 - (void)classObjectTest:(id)sender {
+    NSLog(@" ");
     TXClassObjectTest* test = [[[TXClassObjectTest alloc] init] autorelease];
     [test doTest];
 }
 
 - (void)arrayPerfTest:(id)sender {
+    NSLog(@" ");
     TXArrayPerfTest* test = [[[TXArrayPerfTest alloc] init] autorelease];
     [test doTest];
 }
 
 - (void)sortConcurrencyPerfTest:(id)sender {
+    NSLog(@" ");
     TXStringSortTest* test = [[[TXStringSortTest alloc] init] autorelease];
     [test doTest];
 }
 
 - (void)initTest:(id)sender {
+    NSLog(@" ");
     TXInitTest* test = [[[TXInitTest alloc] init] autorelease];
+    [test doTest];
+}
+
+- (void)blockSelfRefTest:(id)sender {
+    NSLog(@" ");
+    TXBlockSelfRefTest* test = [[[TXBlockSelfRefTest alloc] init] autorelease];
     [test doTest];
 }
 
