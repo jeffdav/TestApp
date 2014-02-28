@@ -8,6 +8,8 @@
 
 #import "TXAppView.h"
 
+#import "UIView+Hierarchy.h"
+
 #include "TXInlineFun.h"
 
 #import "TXArrayPerfTest.h"
@@ -36,15 +38,16 @@
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        self.backgroundColor = [UIColor grayColor];
+        self.backgroundColor = [UIColor whiteColor];
       
         [self initButtons];
+        [self testConspectus];
     }
     return self;
 }
 
 - (void)layoutSubviews {
-    CGFloat y = 10;
+    CGFloat y = 20;
 
     [_classObjectTestButton sizeToFit];
     CGRect frame = _classObjectTestButton.frame;
@@ -104,6 +107,23 @@
     [_blockSelfRefButton setTitle:@"Block w/Self Ref Test" forState:UIControlStateNormal];
     [_blockSelfRefButton addTarget:self action:@selector(blockSelfRefTest:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_blockSelfRefButton];
+}
+
+- (void)testConspectus {
+    NSArray* array = [self findSubviewsOfType:[UIButton class]];
+    NSAssert([array count] == 5, @"Did you add a button?  Update this count.");
+
+    UIView* view = [self findFirstSubviewOfType:[UIButton class]];
+    NSAssert(view != nil, @"View was nil?");
+    NSAssert([view isKindOfClass:[UIButton class]], @"View class was wrong?");
+
+    [self applyBlockToSubviews:^(UIView *view, BOOL *stop) {
+        UIButton* button = (id)view;
+        button.alpha = 0;
+        [UIView animateWithDuration:2.0 animations:^{
+            button.alpha = 1;
+        } completion:^(BOOL finished) {}];
+    } ofClass:[UIButton class]];
 }
 
 #pragma mark Callbacks

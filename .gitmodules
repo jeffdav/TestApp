@@ -1,0 +1,3 @@
+[submodule "conspectus"]
+	path = conspectus
+	url = https://github.com/jeffahoot/conspectus

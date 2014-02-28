@@ -21,6 +21,7 @@
 		0A32D33F16E96BE3000F6EEC /* TXClassObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A32D33E16E96BE3000F6EEC /* TXClassObjectTest.m */; };
 		0A3FE55216F781AE000092DB /* TXInitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FE55116F781AE000092DB /* TXInitTest.m */; };
 		0AD65C0E1742878C00BF3370 /* TXBlockSelfRefTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD65C0D1742878C00BF3370 /* TXBlockSelfRefTest.m */; };
+		6AA3387918C0499500EA6EC9 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3387818C0499500EA6EC9 /* UIView+Hierarchy.m */; };
 		6AFD616216E99AF200C48C8E /* TXArrayPerfTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD616116E99AF200C48C8E /* TXArrayPerfTest.m */; };
 		D89C1EC916F39751002518E2 /* TXStringSortTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D89C1EC816F39751002518E2 /* TXStringSortTest.m */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,8 @@
 		0A3FE55116F781AE000092DB /* TXInitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXInitTest.m; sourceTree = "<group>"; };
 		0AD65C0C1742878C00BF3370 /* TXBlockSelfRefTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBlockSelfRefTest.h; sourceTree = "<group>"; };
 		0AD65C0D1742878C00BF3370 /* TXBlockSelfRefTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBlockSelfRefTest.m; sourceTree = "<group>"; };
+		6AA3387718C0499500EA6EC9 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
+		6AA3387818C0499500EA6EC9 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
 		6AFD616016E99AF200C48C8E /* TXArrayPerfTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXArrayPerfTest.h; sourceTree = "<group>"; };
 		6AFD616116E99AF200C48C8E /* TXArrayPerfTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXArrayPerfTest.m; sourceTree = "<group>"; };
 		D89C1EC716F39751002518E2 /* TXStringSortTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStringSortTest.h; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		0A32D31816E96659000F6EEC /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				6AA1F94718BE96F600B7E276 /* conspectus */,
 				0A32D31916E96659000F6EEC /* Supporting Files */,
 				0A32D32116E96659000F6EEC /* TXAppDelegate.h */,
 				0A32D32216E96659000F6EEC /* TXAppDelegate.m */,
@@ -135,6 +139,15 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		6AA1F94718BE96F600B7E276 /* conspectus */ = {
+			isa = PBXGroup;
+			children = (
+				6AA3387718C0499500EA6EC9 /* UIView+Hierarchy.h */,
+				6AA3387818C0499500EA6EC9 /* UIView+Hierarchy.m */,
+			);
+			path = conspectus;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -206,6 +219,7 @@
 				0A32D32316E96659000F6EEC /* TXAppDelegate.m in Sources */,
 				0A32D32C16E96659000F6EEC /* TXViewController.m in Sources */,
 				0A32D33A16E9689E000F6EEC /* TXAppView.m in Sources */,
+				6AA3387918C0499500EA6EC9 /* UIView+Hierarchy.m in Sources */,
 				0A32D33F16E96BE3000F6EEC /* TXClassObjectTest.m in Sources */,
 				6AFD616216E99AF200C48C8E /* TXArrayPerfTest.m in Sources */,
 				D89C1EC916F39751002518E2 /* TXStringSortTest.m in Sources */,
