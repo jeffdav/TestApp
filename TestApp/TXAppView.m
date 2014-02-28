@@ -124,6 +124,9 @@
             button.alpha = 1;
         } completion:^(BOOL finished) {}];
     } ofClass:[UIButton class]];
+
+    NSString* tree = [self dumpTree];
+    NSAssert([tree length] > 0, @"Got nil from dumpTree?");
 }
 
 #pragma mark Callbacks
